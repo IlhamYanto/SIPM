@@ -1,0 +1,99 @@
+Tambahan:
+1. metode cocomo, minimal cocomo basic, untuk estimasi waktu dan tenaga
+----Metode 
+mencari variael e = efford/usha
+berapa jumlah orng yang dibutuhkan jika dikerjakan dalam waktu satu bulan, misal e =12 , 
+mencari variabel d =durasi (lama pengerjaan proyek)
+
+lampiran: 
+
+tipe project: semi detach 
+ketika e dan d ketemu maka akan ketemu jumlah orang
+
+abstraksi 
+p1 -> mengapa topik diangkat
+p2 -> solusi apa yang sudah ditawarkan orang lain, apa solusimu, bedanya dengan punya orang lain apa?
+p3 -> kesimpulan, manfaatnya
+
+termasuk tools buat bikin gant chart dimasukkan ke bagian tools
+
+4.1 adalah detail 2.1
+
+metode testing minimal black box
+
+pertanyaan : 
+1. besok harus jadi apa aja ? perlu membuat dppl dan skpl ? yang dipresentasikan (diagram diagram harus sudah jadi ?)
+2.
+
+catatan : 
+------------------------------------------------------------
+
+1. boleh satu pkerjaan dikerjakan oleh banyak orang. 
+2. jadi tiap orang mempresentasikan semua pekerjaan
+
+gant chart , 
+setiap orng bekerja di tanggal berap saja, 
+cocomo dan abc, kloc dari kelompok kami untuk bagin ini berapa k
+
+mending mailstone dijadikan satu dengan gant chart. tiap minggu ada mailstone (hasil akhir dari sebuah proses), 
+dijelaskan wrna merah itu apa saja, 
+
+
+SKPL dll, 
+mailsone kebanyakan kotaknya, 
+misal : koding back end -> mailstone nya per fitur, 
+misalkan dari jangka wktu dua minggu ap saja yang dihasilkan,
+source code merupakan milstone tapi belum di deliver,
+di gant chart haru s memunculkan diamond yang menghasilkan mailstone,
+
+harus ada dokumen analisis (sifatnya komplemen, tidak harus sama dengan format tapi harus ).
+output rppl sebagia kerjaan project manager  
+
+
+Perannya harus jelas. 
+harus bisa megatur sinergi tiap anggota kelompok
+
+
+
+
+
+5.1 di detaikan lagi per tahapan, kalau di 2.1 hanya disebutkan nama nya saja, (?) benar ? 
+
+PBS, gambar 3.1 menggambar apa , ....... menggambarkan apa, 
+misalnya wbs aplikasi ini. 
+
+refers bisa dipanggil di di bab mana saja, tianggal di referens.
+sub bab bisa di refers. 
+dalam satu dokumen tidak boleh menulis ulang sesuatu hal yang sama. 
+
+4.1 mengacu 2.1   
+yang programmer OOP. 
+
+Langkah Langkah
+1. Menyelesaikan RPPL 
+   a. perbaikan struktur oraganisasi
+   b. Perbaikan Gant Chart
+   c. buat abc dan cocomo basic
+   d. Buat anggaran
+   e. WBS dan PBS
+2. Lampiran
+   a. notulensi
+   b. cdm pdm dfd dll
+    
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
