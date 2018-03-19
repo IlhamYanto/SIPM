@@ -1,0 +1,18 @@
+catatan:
+timeline di buat parent dan child 
+implementasi
+  - koding tahap I
+  - Testing
+  - Koding Tahap II
+
+- KLOC diperbaiki
+- form notulensi.
+  ada nomor notulensi (contoh di )
+- kalau sama client minta ttd client discan
+- alur kerja sistem dalam bentuk diagram
+- WBS dan timeline harus sesuai
+
+progress2 harus sudah selesai
+
+template dokumentator
+- indoorx -----------  --------- --
