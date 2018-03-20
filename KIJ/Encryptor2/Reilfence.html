@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	body{
+		background-color: #009999;
+		margin: auto;
+	    width: 50%;
+	}
+	#shift{
+		margin: auto;
+	    width: 50%;
+	    padding: 10px;
+	}
+	#enkrip{
+		float: left;
+	}
+	#dekrip{
+		float: right;
+	}
+</style>
+<head>
+	<title>Reilfence</title>
+	<script src="encryptor.js"></script>
+</head>
+<body>
+	<div align="center"><h2><b>Reilfence</b></h2></div>
+	<form action="#" method="get" onsubmit="return false;">
+	<table class="noborder">
+		<tbody>
+			<tr>
+				<td><label for="plain">Text:</label></td>
+				<td><textarea id="plain" cols="50" rows="10" style="width:40em; height:15em">inienkripsi</textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+
+					<input id="enkrip" type="button" value="Encrypt" onclick="reilencode();"/>
+					<input id="dekrip" type="button" value="Decrypt" onclick="reildecode();"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</body>
+</html>

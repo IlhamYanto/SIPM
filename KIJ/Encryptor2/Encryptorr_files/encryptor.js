@@ -44,8 +44,9 @@ function caesarShift(text, shift) {
 }
 //MonoAlphabetic
 //--------------------------------------------------------------------------------
-function monoCrypt() 
-{ var text=AssignPlain();
+
+function monoCrypt() { 
+  var text=AssignPlain();
   var key = AssignKey();
   var plaintext = text.toLowerCase();  
   var ekey = key.toLowerCase().replace(/[^a-z]/g,""); 
@@ -59,7 +60,7 @@ function monoCrypt()
   document.getElementById("plain").innerHTML = ciphertext.toUpperCase(); 
 }
 
-function demonoCrypt(){
+function demonoCrypt() {
   var text=AssignPlain();
   var key = AssignKey(); 
   var ciphertext = text.toLowerCase();  
@@ -75,112 +76,110 @@ function demonoCrypt(){
 }
 //PlayFair
 //-------------------------------------------------------------------------------------------------
-
+var grid = [
+      ['a', 'b', 'c', 'd', 'e'],
+      ['f', 'g', 'h', 'i', 'k'],
+      ['l', 'm', 'n', 'o', 'p'],
+      ['q', 'r', 's', 't', 'u'],
+      ['v', 'w', 'x', 'y', 'z']
+    ];
 function setKey(key) {
-      if (key) {
-        // create grid from key
-        var alphabet = ['abcdefghiklmnopqrstuvwxyz'];
-        var sanitizedKey = key.toLowerCase().replace(/j/g, 'i').replace(/[^a-z]/g, '');
-        var keyGrid = [...new Set(`${sanitizedKey}${alphabet}`)];
-        grid = [];
-        for (let i = 0; i < keyGrid.length; i += 5) {
-          grid.push(keyGrid.slice(i, i + 5));
-        }
-      } 
-      return grid;
+  if (key) {
+    // create grid from key
+    var alphabet = ['abcdefghiklmnopqrstuvwxyz'];
+    var sanitizedKey = key.toLowerCase().replace(/j/g, 'i').replace(/[^a-z]/g, '');
+    var keyGrid = [...new Set(`${sanitizedKey}${alphabet}`)];
+    var grid = [];
+    for (let i = 0; i < keyGrid.length; i += 5) {
+      grid.push(keyGrid.slice(i, i + 5));
     }
+  } 
+  return grid;
+}
 
-    function preProcess(input, decrypt) 
-    {
-      // split into duples, fixing double-letters (hello => he lx lo) and padding
-      text = input.toLowerCase().replace(/[^a-z]/g, '').replace(/j/g, 'i').split('').filter(x => x !== ' ');
-      duples = [];
-      for (let i = 0; i < text.length; i += 2) {
-        currentDuple = text.slice(i, i + 2);
-        if (!decrypt && currentDuple.length !== 2) {
-          currentDuple.push('x');
-          duples.push(currentDuple);
-        }else if (!decrypt && currentDuple[0] === currentDuple[1]) {
-          text.splice(i + 1, 0, 'x');
-          duples.push(text.slice(i, i + 2));
-        }else {
-          duples.push(currentDuple);
+function preProcess(input, decrypt) 
+{
+  // split into duples, fixing double-letters (hello => he lx lo) and padding
+  var text = input.toLowerCase().replace(/[^a-z]/g, '').replace(/j/g, 'i').split('').filter(x => x !== ' ');
+  var duples = [];
+  for (let i = 0; i < text.length; i += 2) {
+   var currentDuple = text.slice(i, i + 2);
+    if (!decrypt && currentDuple.length !== 2) {
+      currentDuple.push('x');
+      duples.push(currentDuple);
+    }else if (!decrypt && currentDuple[0] === currentDuple[1]) {
+      text.splice(i + 1, 0, 'x');
+      duples.push(text.slice(i, i + 2));
+    }else {
+      duples.push(currentDuple);
+    }
+  }
+
+  // find row and column for each letter in duple
+  const coordinates = [];
+  duples.forEach((duple) => {
+    coordinates.push(duple.map((letter) => {
+      let col;
+     var ROW = grid.findIndex(ROW => {
+     var ROWIDX = ROW.findIndex(x => x === letter);
+        if (ROWIDX >= 0) {
+          col = ROWIDX;
+          return true;
         }
-        // console.log(currentDuple)
-      }
-
-      // find row and column for each letter in duple
-       coordinates = [];
-      duples.forEach((duple) => {
-        coordinates.push(duple.map((letter) => {
-          let col;
-           row = grid.findIndex(row => {
-
-             rowIdx = row.findIndex(x => x === letter);
-            if (rowIdx >= 0) {
-              col = rowIdx;
-              return true;
-            }
-            return false;
-          });
-          console.log(row, col)
-          return [row, col];
-        }));
+        return false;
       });
+      return [ROW, col];
+    }));
+  });
 
-      return coordinates;
+  return coordinates;
+}
+
+function doPlayfair(decrypt) {
+  var input = AssignPlain();
+  var grid = setKey(AssignKey());
+  if (!grid) return 'First set the key!';
+  if (input && decrypt && input.length % 2 !== 0) input += 'x';
+  const coordinates = preProcess(input, decrypt);
+
+  // set modifiers to respond appropriately based on decrypt switch
+  const modifier = decrypt ? -1 : 1;
+  const wall = decrypt ? 0 : 4;
+  const phase = decrypt ? 4 : -4;
+
+  const processedLocs = [];
+  coordinates.forEach((loc) => {
+    // loc: [ [ firstLetterR, firstLetterC ], [ secondLetterR, secondLetterC ] ]
+    // modified: [ [ newFirstLetterR, newFirstLetterC ], [ newSecondLetterR, newSecondLetter R ] ]
+
+    let modifiedLoc = [];
+
+    // handle letters on the same row
+    if (loc[0][0] === loc[1][0]) {
+      // increment/decrement the column
+      modifiedLoc[0] = loc[0][1] === wall ? [loc[0][0], wall + phase] : [loc[0][0], loc[0][1] + modifier];
+      modifiedLoc[1] = loc[1][1] === wall ? [loc[1][0], wall + phase] : [loc[1][0], loc[1][1] + modifier];
+      return processedLocs.push(modifiedLoc);
     }
 
-    function doPlayfair(decrypt) {
-      var input = AssignPlain();
-      var grid = setKey(AssignKey());
-      // console.log(grid);
-      if (!grid) return 'First set the key!';
-      if (input && decrypt && input.length % 2 !== 0) input += 'x';
-      const coordinates = preProcess(input, decrypt);
-
-      // set modifiers to respond appropriately based on decrypt switch
-      // set modifiers to respond appropriately based on decrypt switch
-      const modifier = decrypt ? -1 : 1;
-      const wall = decrypt ? 0 : 4;
-      const phase = decrypt ? 4 : -4;
-
-      const processedLocs = [];
-      coordinates.forEach((loc) => {
-        // loc: [ [ firstLetterR, firstLetterC ], [ secondLetterR, secondLetterC ] ]
-        // modified: [ [ newFirstLetterR, newFirstLetterC ], [ newSecondLetterR, newSecondLetter R ] ]
-
-        let modifiedLoc = [];
-
-        // handle letters on the same row
-        if (loc[0][0] === loc[1][0]) {
-          // increment/decrement the column
-          modifiedLoc[0] = loc[0][1] === wall ? [loc[0][0], wall + phase] : [loc[0][0], loc[0][1] + modifier];
-          modifiedLoc[1] = loc[1][1] === wall ? [loc[1][0], wall + phase] : [loc[1][0], loc[1][1] + modifier];
-          return processedLocs.push(modifiedLoc);
-        }
-
-        // handle letters in the same column
-        if (loc[0][1] === loc[1][1]) {
-          // increment/decrement the row
-          modifiedLoc[0] = loc[0][0] === wall ? [wall + phase, loc[0][1]] : [loc[0][0] + modifier, loc[0][1]];
-          modifiedLoc[1] = loc[1][0] === wall ? [wall + phase, loc[1][1]] : [loc[1][0] + modifier, loc[1][1]];
-          return processedLocs.push(modifiedLoc);
-        }
-
-        // handle different rows, different columns
-        modifiedLoc[0] = [loc[0][0], loc[1][1]];
-        modifiedLoc[1] = [loc[1][0], loc[0][1]];
-        processedLocs.push(modifiedLoc);
-      });
-
-      // translate coordinates into ciphertext
-      const processedText = processedLocs
-        .map((loc) => [grid[loc[0][0]][loc[0][1]], grid[loc[1][0]][loc[1][1]]].join(''))
-        .join('');
-
-      document.getElementById("plain").value = processedText.toUpperCase();
+    // handle letters in the same column
+    if (loc[0][1] === loc[1][1]) {
+      // increment/decrement the row
+      modifiedLoc[0] = loc[0][0] === wall ? [wall + phase, loc[0][1]] : [loc[0][0] + modifier, loc[0][1]];
+      modifiedLoc[1] = loc[1][0] === wall ? [wall + phase, loc[1][1]] : [loc[1][0] + modifier, loc[1][1]];
+      return processedLocs.push(modifiedLoc);
     }
+
+    // handle different rows, different columns
+    modifiedLoc[0] = [loc[0][0], loc[1][1]];
+    modifiedLoc[1] = [loc[1][0], loc[0][1]];
+    processedLocs.push(modifiedLoc);
+  });
+
+  // translate coordinates into ciphertext
+  const processedText = processedLocs
+    .map((loc) => [grid[loc[0][0]][loc[0][1]], grid[loc[1][0]][loc[1][1]]].join(''))
+    .join('');
 
   document.getElementById("plain").innerHTML = processedText.toUpperCase();
 }
