@@ -66,26 +66,27 @@
 				alert("Shift is not an integer");
 				return;
 			}
-			var shift = parseInt(shiftText, 10);
-			if (shift < 0 || shift >= 26) {
-				alert("Shift is out of range");
-				return;
-			}
+			shift = parseInt(shiftText, 10);
+			if (shift<0)	shift = (26 + shift) % 26;
 			if (isDecrypt)
 				shift = (26 - shift) % 26;
-			var textElem = AssignPlain();
+			textElem = AssignPlain();
 			textElem = caesarShift(textElem, shift);
 			console.log(textElem);
 			document.getElementById("plain").value = textElem;
 		}
 
 		function caesarShift(text, shift) {
-			var result = "";
+			 result = "";
 			for (var i = 0; i < text.length; i++) {
 				var c = text.charCodeAt(i);
+
 				if      (65 <= c && c <=  90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);  // Uppercase
 				else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);  // Lowercase
 				else                          result += text.charAt(i);  // Copy
+
+				// if 		(result.charAt(i) < 65) result.charAt(i) -= shift;
+				// else if (result.charAt(i) < 97) result.charAt(i) -= shift;
 			}
 			return result;
 		}

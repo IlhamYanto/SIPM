@@ -1,0 +1,15 @@
+Frront End	Dely
+Encrypt		Yanto
+Dokumentasi	Yoga
+
+Algoritma :
+- Caesar Chiper					https://repl.it/@Moh_llhamllham/CaesarCipher
+- Monoalphabetic Ciphers			https://repl.it/@Moh_llhamllham/MonoalphabeticCipher
+- Playfair Cipher					https://repl.it/@Moh_llhamllham/PlayfairCipher
+- Polyalphabetic Ciphers				https://repl.it/@Moh_llhamllham/PolyalphabeticCipher
+- Transposition Technique (Rail Fence)	https://repl.it/@Moh_llhamllham/RailFenceCipher 
+
+Tools : http://rumkin.com/tools/cipher/playfair.php
+http://www.java2s.com/Code/JavaScript/Security/PlayfairEncryptioninJavaScript.htm
+http://practicalcryptography.com/ciphers/simple-substitution-cipher/
+https://www.nayuki.io/page/caesar-cipher-javascript
