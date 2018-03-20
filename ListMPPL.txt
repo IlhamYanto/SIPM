@@ -1,0 +1,78 @@
+Project Manager
+** struktur organisasi 	(De)
+** ganchart			(De)
+
+Designer
+** mock up			(Ya)
+
+Dokumentator
+** abc dan cocomo basi	(Yo)
+** buat anggaran 		(Yo)
+** WBS dan PBS 		(Ya)
+
+Notulensi
+** notulen sesuai templ	(De)
+
+System Analist
+** cdm pdm			(De)
+** dfd				(Yo)
+** use case			(Ya)
+
+Front End Programmer
+* ngoding front end		(Yo)
+
+
+Back End Programmer
+* ngoding back end		(De)
+* ngoding db			(Ya)
+
+Tester
+** buat requirement		(Ya)
+* debugger
+
+SKPL (GL-01)
+* dfd dan contex diagram
+* kamus data
+
+DPPL (GL-02)
+* tabel mysql
+* cdm pdm
+* mock up
+-----------------------------------------------------------
+Resource
+-------------
+Project Manager  
+Designer
+Dokumentator
+Analys
+Notulensi
+Fron End Programmer
+Tester
+Back End Programmer
+------------------------------------------------------------
+Task
+-------
+1. Project planning             (PM)
+2. Membagi Pekerjaan       (PM)
+3. Menyiapkan Use Case   (Analys)
+4. Membuat sequence dan kelas diagram  (Analys)
+5. membuat DFD       (Analys)
+ - Membuat CDM PDM (Analys)
+6. Mencari kebutuhan informasi     (Dokumentator)
+7. Memilih informasi yang telah didapat  (Dokumentator)
+8. Menentukan Bahasa Pemrograman  (Analys)
+9. Membuat alur proses sistem    (Analys)
+10. Membuat desain interface    (Designer)
+11. koding tahap 1 (Front end)   (F-End P)
+12. pembuatan data base           (Back-end P)
+13. koding tahap 2 (Back end)    (Back-end P)
+14. Testing dan debuging 1 [fron and back end]  (FE,BE,T)
+15. koding tahap 3 (sinkronisasi front end dan back end) (FE,BE)
+16. testing dan debugging 2   (FE,BE,T)  
+17. Penyempurnaan aplikasi  (FE,BE,T)
+18. testing dan debugging final (FE,BE,T)
+19. Finalisasi  (FE,BE,T)
+20. Mencatat semua hal hal teknis       (Notulensi)
+
+
+metode pengembangan
