@@ -19,28 +19,28 @@
 	}
 </style>
 <head>
-	<title>Caesar Encryptor</title>
+	<title>PolyAlphabetic</title>
 	<script src="Encryptorr_files/encryptor.js"></script>
 </head>
 <body>
-	<div align="center"><h2><b>Caesar Cipher</b></h2></div>
+	<div align="center"><h2><b>PolyAlphabetic</b></h2></div>
 	<form action="#" method="get" onsubmit="return false;">
 	<table class="noborder">
 		<tbody>
 			<tr>
 				<td><label for="plain">Text:</label></td>
-				<td><textarea id="plain" cols="50" rows="10" style="width:40em; height:15em">Belajar Teknik-Teknik Enkripsi</textarea></td>
+				<td><textarea id="plain" cols="50" rows="10" style="width:40em; height:15em">inienkripsi</textarea></td>
 			</tr>
 			<tr>
 				<td ><label for="key">Shift:</label></td>
-				<td><input type="text" id="key" value=5 style="width:4em;"/></td>
+				<td><input type="text" id="key" value="inikuncinyabro" style="width:15em;"/></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
 
-					<input id="enkrip" type="button" value="Encrypt" onclick="doCrypt(false);"/>
-					<input id="dekrip" type="button" value="Decrypt" onclick="doCrypt(true);"/>
+					<input id="enkrip" type="button" value="Encrypt" onclick="doPolyCrypt(false);"/>
+					<input id="dekrip" type="button" value="Decrypt" onclick="doPolyCrypt(true);"/>
 				</td>
 			</tr>
 		</tbody>
