@@ -44,9 +44,8 @@ function caesarShift(text, shift) {
 }
 //MonoAlphabetic
 //--------------------------------------------------------------------------------
-
-function monoCrypt() { 
-  var text=AssignPlain();
+function monoCrypt() 
+{ var text=AssignPlain();
   var key = AssignKey();
   var plaintext = text.toLowerCase();  
   var ekey = key.toLowerCase().replace(/[^a-z]/g,""); 
@@ -60,7 +59,7 @@ function monoCrypt() {
   document.getElementById("plain").innerHTML = ciphertext.toUpperCase(); 
 }
 
-function demonoCrypt() {
+function demonoCrypt(){
   var text=AssignPlain();
   var key = AssignKey(); 
   var ciphertext = text.toLowerCase();  
