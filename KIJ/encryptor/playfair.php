@@ -59,20 +59,13 @@
 		  return key;
 		}
 
-		var grid = [
-		      ['a', 'b', 'c', 'd', 'e'],
-		      ['f', 'g', 'h', 'i', 'k'],
-		      ['l', 'm', 'n', 'o', 'p'],
-		      ['q', 'r', 's', 't', 'u'],
-		      ['v', 'w', 'x', 'y', 'z']
-		    ];
 		function setKey(key) {
 		  if (key) {
 		    // create grid from key
 		    var alphabet = ['abcdefghiklmnopqrstuvwxyz'];
 		    var sanitizedKey = key.toLowerCase().replace(/j/g, 'i').replace(/[^a-z]/g, '');
 		    var keyGrid = [...new Set(`${sanitizedKey}${alphabet}`)];
-		    var grid = [];
+		    grid = [];
 		    for (let i = 0; i < keyGrid.length; i += 5) {
 		      grid.push(keyGrid.slice(i, i + 5));
 		    }
@@ -83,10 +76,10 @@
 		function preProcess(input, decrypt) 
 		{
 		  // split into duples, fixing double-letters (hello => he lx lo) and padding
-		  var text = input.toLowerCase().replace(/[^a-z]/g, '').replace(/j/g, 'i').split('').filter(x => x !== ' ');
-		  var duples = [];
+		  text = input.toLowerCase().replace(/[^a-z]/g, '').replace(/j/g, 'i').split('').filter(x => x !== ' ');
+		  duples = [];
 		  for (let i = 0; i < text.length; i += 2) {
-		   var currentDuple = text.slice(i, i + 2);
+		    currentDuple = text.slice(i, i + 2);
 		    if (!decrypt && currentDuple.length !== 2) {
 		      currentDuple.push('x');
 		      duples.push(currentDuple);
@@ -96,22 +89,25 @@
 		    }else {
 		      duples.push(currentDuple);
 		    }
+		    // console.log(currentDuple)
 		  }
 
 		  // find row and column for each letter in duple
-		  const coordinates = [];
+		   coordinates = [];
 		  duples.forEach((duple) => {
 		    coordinates.push(duple.map((letter) => {
 		      let col;
-		     var ROW = grid.findIndex(ROW => {
-		     var ROWIDX = ROW.findIndex(x => x === letter);
-		        if (ROWIDX >= 0) {
-		          col = ROWIDX;
+		       row = grid.findIndex(row => {
+
+		         rowIdx = row.findIndex(x => x === letter);
+		        if (rowIdx >= 0) {
+		          col = rowIdx;
 		          return true;
 		        }
 		        return false;
 		      });
-		      return [ROW, col];
+		      console.log(row, col)
+		      return [row, col];
 		    }));
 		  });
 
@@ -121,7 +117,7 @@
 		function doPlayfair(decrypt) {
 		  var input = AssignPlain();
 		  var grid = setKey(AssignKey());
-		  console.log(grid);
+		  // console.log(grid);
 		  if (!grid) return 'First set the key!';
 		  if (input && decrypt && input.length % 2 !== 0) input += 'x';
 		  const coordinates = preProcess(input, decrypt);
