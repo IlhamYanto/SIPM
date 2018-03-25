@@ -106,7 +106,6 @@
 		        }
 		        return false;
 		      });
-		      console.log(row, col)
 		      return [row, col];
 		    }));
 		  });

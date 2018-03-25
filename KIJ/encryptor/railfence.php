@@ -61,8 +61,14 @@
 
   function reilencode()
   {
-    ptext = AssignPlain().toUpperCase().replace(/[^a-zA-Z]/g, '');
+    ptext = AssignPlain();
     key = AssignKey();
+
+    if (key == 1 || key > (0.5 * ptext.length))
+    {
+      alert("key tidak boleh sama dengan satu atau melebihi setengah panjang plain text");
+      return 1;
+    }
 
     mainArray = Array(key);
     for (i = 0; i < key; i++) {
@@ -93,8 +99,14 @@
 
   function reildecode()
   {
-    ctext = AssignPlain().toUpperCase().replace(/[^a-zA-Z]/g, '');
+    ctext = AssignPlain();
     key = AssignKey();
+
+    if (key == 1 || key > (0.5 * ctext.length))
+    {
+      alert("key tidak boleh sama dengan satu atau melebihi setengah panjang plain text");
+      return 1;
+    }
 
     mainArray = Array(key);
     for(i=0; i<key; i++)
