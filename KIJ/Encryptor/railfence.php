@@ -22,7 +22,7 @@
 	<title>Reilfence</title>
 </head>
 <body>
-	<div align="center"><h2><b>Reilfence</b></h2></div>
+	<div align="center"><h2><b>Reilfence Cipher</b></h2></div>
 	<form action="#" method="get" onsubmit="return false;">
 	<table class="noborder">
 		<tbody>

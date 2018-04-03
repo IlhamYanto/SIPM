@@ -23,7 +23,7 @@
 	<!-- <script src="Encryptorr_files/encryptor.js"></script> -->
 </head>
 <body>
-	<div align="center"><h2><b>PolyAlphabetic</b></h2></div>
+	<div align="center"><h2><b>PolyAlphabetic Cipher</b></h2></div>
 	<form action="#" method="get" onsubmit="return false;">
 	<table class="noborder">
 		<tbody>
