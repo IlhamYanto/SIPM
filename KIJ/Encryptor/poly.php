@@ -20,7 +20,8 @@
 </style>
 <head>
 	<title>PolyAlphabetic</title>
-	<!-- <script src="Encryptorr_files/encryptor.js"></script> -->
+	<script src="des.js"></script>
+	<script src="ecb.js"></script>
 </head>
 <body>
 	<div align="center"><h2><b>PolyAlphabetic</b></h2></div>
@@ -32,7 +33,7 @@
 				<td><textarea id="plain" cols="50" rows="10" style="width:40em; height:15em">inienkripsi</textarea></td>
 			</tr>
 			<tr>
-				<td ><label for="key">Shift:</label></td>
+				<td ><label for="key">Key:</label></td>
 				<td><input type="text" id="key" value="inikuncinyabro" style="width:15em;"/></td>
 			</tr>
 			<tr>
