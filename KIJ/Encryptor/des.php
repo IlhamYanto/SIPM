@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td ><label for="key">Key:</label></td>
-				<td><input type="text" id="key" value="ini kuncinya bro" style="width:20em;"/></td>
+				<td><input type="text" id="key" value="inikunci" style="width:20em;"/></td>
 			</tr>
 			<tr>
 				<td></td>

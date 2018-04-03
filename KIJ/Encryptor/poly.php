@@ -20,8 +20,7 @@
 </style>
 <head>
 	<title>PolyAlphabetic</title>
-	<script src="des.js"></script>
-	<script src="ecb.js"></script>
+	<!-- <script src="Encryptorr_files/encryptor.js"></script> -->
 </head>
 <body>
 	<div align="center"><h2><b>PolyAlphabetic</b></h2></div>
