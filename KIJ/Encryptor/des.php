@@ -20,8 +20,8 @@
 </style>
 <head>
 	<title>DES</title>
-	<script src="des.js"></script>
-	<script src="ecb.js"></script>
+	<script src="vendor/des/des.js"></script>
+	<script src="vendor/des/ecb.js"></script>
 </head>
 <body>
 	<div align="center"><h2><b>DES Cipher</b></h2></div>
